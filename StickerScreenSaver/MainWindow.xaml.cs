@@ -7,7 +7,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
-using System.Windows.Threading;
+using System.Linq;
+using System.Configuration;
 
 namespace StickerScreenSaver
 {
@@ -16,8 +17,11 @@ namespace StickerScreenSaver
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> Stickers;
+        List<string> StickerPaths = new List<string>();
+        List<Image> Stickers = new List<Image>();
         Random rnd;
+        int index;
+        const int MAXSTICKERS = 300;
 
         public MainWindow()
         {
@@ -27,30 +31,38 @@ namespace StickerScreenSaver
         private void DrawStickers()
         {
             rnd = new Random();
-            var timer = new DispatcherTimer()
-            {
-                Interval = TimeSpan.FromSeconds(1)
-            };
-            timer.Tick += timer_Tick;
-            timer.Start();
-            AddSticker();
+            CompositionTarget.Rendering += CompositionTarget_Rendering;
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        TimeSpan LastRenderTime;
+        private void CompositionTarget_Rendering(object sender, EventArgs e)
         {
+            TimeSpan timeSinceLastRender;
+
+            timeSinceLastRender = (DateTime.Now.TimeOfDay - LastRenderTime);
+            if (timeSinceLastRender.TotalSeconds < 1)
+                return;
+
+            LastRenderTime = DateTime.Now.TimeOfDay;
             AddSticker();
         }
 
         private void AddSticker()
         {
-            var index = rnd.Next(Stickers.Count);
+            if (StickerPaths.Count == 0)
+            {
+                return;
+            }
+
+            var i = rnd.Next(StickerPaths.Count);
+
             var imgTemp = new Image()
             {
-                Source = new BitmapImage(new Uri(Stickers[index]))
+                Source = new BitmapImage(new Uri(StickerPaths[i]))
             };
             var x = rnd.NextDouble() * mainCanvas.Width;
             var y = rnd.NextDouble() * mainCanvas.Height;
-            var scale = 0.4 + rnd.NextDouble() * 0.6;
+            var scale = 0.6 + rnd.NextDouble() * 0.5;
             var rotate = -90 + rnd.Next(150);
 
             imgTemp.RenderTransformOrigin = new Point(0.5, 0.5);
@@ -92,23 +104,52 @@ namespace StickerScreenSaver
 
             imgTemp.Effect = myDropShadowEffect;
 
-            mainCanvas.Children.Add(imgTemp);
+            if (Stickers.Count < index + 1)
+            {
+                Stickers.Add(imgTemp);
+                mainCanvas.Children.Add(Stickers.Last());
+            }
+            else
+            {
+                mainCanvas.Children.Remove(Stickers[index]);
+                Stickers[index] = imgTemp;
+                mainCanvas.Children.Add(Stickers[index]);
+            }
+            index++;
+            if (index > MAXSTICKERS)
+            {
+                index = 0;
+            }
         }
 
         private void LoadStickers(string folderPath)
         {
-            Stickers = new List<string>();
-            foreach (string filename in Directory.EnumerateFiles(folderPath, "*.png", SearchOption.AllDirectories))
+            var settings = Settings.Load(AppDomain.CurrentDomain.BaseDirectory + @"\Stickers.xml");
+            StickerPaths = new List<string>();
+
+            var savedSets = settings.Sets.Split(';');
+            foreach (var setPath in savedSets)
+            {                
+                if (!string.IsNullOrEmpty(setPath))
+                {
+                    foreach (string filename in Directory.EnumerateFiles(setPath, "*.png", SearchOption.AllDirectories))
+                    {
+                        StickerPaths.Add(filename);
+                    }
+                }
+            }
+            if (!StickerPaths.Any())
             {
-                Stickers.Add(filename);
+                foreach (string filename in Directory.EnumerateFiles(folderPath, "*.png", SearchOption.AllDirectories))
+                {
+                    StickerPaths.Add(filename);
+                }
             }
         }
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             mainWindow.WindowState = WindowState.Maximized;
-            mainCanvas.Width = mainWindow.Width;
-            mainCanvas.Height = mainWindow.Height;
 
             LoadStickers(AppDomain.CurrentDomain.BaseDirectory + @"\Stickers");
 
