@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -43,12 +40,13 @@ namespace StickerScreenSaver
         {
             try
             {
-                XmlSerializer serial = new XmlSerializer(typeof(Settings));
+                var serial = new XmlSerializer(typeof(Settings));
 
-                FileStream fs = new FileStream(sSettingsFilename, FileMode.Create);
-                TextWriter writer = new StreamWriter(fs, new UTF8Encoding());
-                serial.Serialize(writer, this);
-                writer.Close();
+                using (var fs = new FileStream(sSettingsFilename, FileMode.Create))
+                using (TextWriter writer = new StreamWriter(fs, new UTF8Encoding()))
+                {
+                    serial.Serialize(writer, this);
+                }
             }
             catch { }
         }
@@ -63,10 +61,12 @@ namespace StickerScreenSaver
             Settings settings = null;
             try
             {
-                XmlSerializer serial = new XmlSerializer(typeof(Settings));
-                FileStream fs = new FileStream(sSettingsFilename, FileMode.OpenOrCreate);
-                TextReader reader = new StreamReader(fs);
-                settings = (Settings)serial.Deserialize(reader);
+                var serial = new XmlSerializer(typeof(Settings));
+                using (var fs = new FileStream(sSettingsFilename, FileMode.OpenOrCreate))
+                using (TextReader reader = new StreamReader(fs))
+                {
+                    settings = (Settings)serial.Deserialize(reader);
+                }
             }
             catch
             {

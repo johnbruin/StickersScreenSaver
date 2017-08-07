@@ -3,8 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="Settings" Height="300" Width="300" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" SizeToContent="Height" WindowStyle="ToolWindow" Background="White">
+        Title="Settings" Height="300" Width="300" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" SizeToContent="Height" WindowStyle="ToolWindow" Background="#FFE7E1E1">
     <Grid x:Name="mainGrid">
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Ordina.PNG" Height="211" Width="272" Margin="42,154,-20.667,-93.667" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-28.352"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
         <StackPanel>
             <Label Content="Please select sticker sets to show:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="262"/>
             <StackPanel x:Name="stpStickerSets" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="178" Margin="23,10,0,0" VerticalAlignment="Top" Width="249"/>

@@ -91,25 +91,49 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Ordina.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Stickers\Developer\Android.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\AngularJS.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\Anonymous.PNG">
+    <Content Include="Stickers\Developer\PHP.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Stickers\Microsoft\AzureFunctions.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Stickers\Developer\Git.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Stickers\Microsoft\Channel9.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Stickers\Microsoft\Office.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Stickers\Microsoft\PaperClip.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Stickers\Microsoft\Windows95.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Stickers\Miscellaneous\Anonymous.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\Apple.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\Azure.PNG">
+    <Content Include="Stickers\Microsoft\Azure.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\Bower.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\CSharp.PNG">
+    <Content Include="Stickers\Microsoft\CSharp.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\Chrome.PNG">
@@ -139,7 +163,7 @@
     <Content Include="Stickers\Developer\HTML5.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\InternetExplorer.PNG">
+    <Content Include="Stickers\Microsoft\InternetExplorer.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\Java.PNG">
@@ -154,16 +178,16 @@
     <Content Include="Stickers\Developer\Linux.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\Microsoft.PNG">
+    <Content Include="Stickers\Microsoft\Microsoft.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\NinjacatNarwhal.PNG">
+    <Content Include="Stickers\Microsoft\NinjacatNarwhal.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\NinjacatTRex.PNG">
+    <Content Include="Stickers\Microsoft\NinjacatTRex.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\NinjaCatUnicorn.PNG">
+    <Content Include="Stickers\Microsoft\NinjaCatUnicorn.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\NodeJS.PNG">
@@ -178,7 +202,7 @@
     <Content Include="Stickers\Developer\Ordina.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\PowerShell.PNG">
+    <Content Include="Stickers\Microsoft\PowerShell.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\RaspberryPi.PNG">
@@ -193,7 +217,7 @@
     <Content Include="Stickers\Developer\Slack.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\SQLServer.PNG">
+    <Content Include="Stickers\Microsoft\SQLServer.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\StackOverflow.PNG">
@@ -205,19 +229,19 @@
     <Content Include="Stickers\Developer\Unity3D.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\VisualStudio.PNG">
+    <Content Include="Stickers\Microsoft\VisualStudio.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\VisualStudioCode.PNG">
+    <Content Include="Stickers\Microsoft\VisualStudioCode.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Developer\WordPress.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Developer\Xamarin.PNG">
+    <Content Include="Stickers\Microsoft\Xamarin.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Miscellaneous\Autobot.PNG">
+    <Content Include="Stickers\Retro\Autobot.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Miscellaneous\Banksy.PNG">
@@ -265,7 +289,7 @@
     <Content Include="Stickers\Miscellaneous\Obey.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Miscellaneous\OptimusPrime.PNG">
+    <Content Include="Stickers\Retro\OptimusPrime.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Miscellaneous\Paw.PNG">
@@ -286,7 +310,7 @@
     <Content Include="Stickers\Miscellaneous\RadioActive.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Stickers\Miscellaneous\RobotFace.PNG">
+    <Content Include="Stickers\Retro\RobotFace.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Stickers\Miscellaneous\Spiderman.PNG">
