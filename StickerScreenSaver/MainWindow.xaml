@@ -1,7 +1,7 @@
 ﻿<Window x:Name="mainWindow" x:Class="StickerScreenSaver.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" WindowStyle="None" KeyDown="Window_KeyDown" MouseDown="Window_MouseDown" ResizeMode="NoResize">
+        Title="MainWindow" WindowStyle="None" KeyDown="Window_KeyDown" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Viewbox x:Name="mainViewbox" Stretch="UniformToFill">
         <Canvas x:Name="mainCanvas" Background="#FFE7E1E1" Loaded="mainWindow_Loaded" Width="1920" Height="1080">
         </Canvas>

@@ -13,6 +13,7 @@ namespace StickerScreenSaver
         public const string SettingsFile = "Stickers.xml";
 
         public string Sets;
+        public double Speed;
 
         /// <summary>
         /// Instantiate the class, loading settings from a specified file.
@@ -30,6 +31,7 @@ namespace StickerScreenSaver
         public void SetDefaults()
         {
             Sets = string.Empty;
+            Speed = 1;
         }
 
         /// <summary>
